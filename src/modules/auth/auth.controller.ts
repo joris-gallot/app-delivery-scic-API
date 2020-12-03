@@ -10,7 +10,7 @@ import { AuthPayload } from '../../payload/auth';
 
 @Controller()
 export class AuthController {
-  constructor(private readonly authervice: AuthService) {}
+  constructor(private readonly authService: AuthService) {}
 
   @Post('login')
   login(
@@ -24,7 +24,7 @@ export class AuthController {
       );
     }
 
-    return this.authervice.login(email, password);
+    return this.authService.login(email, password);
   }
 
   @Post('register')
@@ -39,6 +39,6 @@ export class AuthController {
       );
     }
 
-    return await this.authervice.register(email, password);
+    return await this.authService.register(email, password);
   }
 }

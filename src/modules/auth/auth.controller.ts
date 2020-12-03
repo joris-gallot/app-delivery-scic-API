@@ -6,7 +6,7 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { User } from '../../entities/user.entity';
+import { AuthPayload } from '../../payload/auth';
 
 @Controller()
 export class AuthController {
@@ -16,7 +16,7 @@ export class AuthController {
   login(
     @Body('email') email: string,
     @Body('password') password: string,
-  ): Promise<User> {
+  ): Promise<AuthPayload> {
     if (!email || !password) {
       throw new HttpException(
         'missing email or password',
@@ -31,7 +31,7 @@ export class AuthController {
   async register(
     @Body('email') email: string,
     @Body('password') password: string,
-  ): Promise<User> {
+  ): Promise<AuthPayload> {
     if (!email || !password) {
       throw new HttpException(
         'missing email or password',

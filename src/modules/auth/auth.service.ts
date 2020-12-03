@@ -34,7 +34,7 @@ export class AuthService {
           HttpStatus.UNPROCESSABLE_ENTITY,
         );
       }
-      console.log(error);
+
       throw error;
     }
   }
